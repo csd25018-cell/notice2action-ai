@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>notice2action-ai | TrustExtract-N Engine</title>
+  <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+
+  <div class="app-container">
+    <!-- Header Bar -->
+    <header class="app-header">
+      <div class="brand-logo">
+        <div class="brand-icon">N2A</div>
+        <div>
+          <div class="brand-title">notice2action-ai</div>
+          <div class="brand-subtitle">Powered by TrustExtract-N Engine</div>
+        </div>
+      </div>
+      <div class="status-badge">
+        <span class="pulse-dot"></span>
+        <span id="system-status">TrustExtract-N Engine Online</span>
+      </div>
+    </header>
+
+    <!-- Main Workspace Grid -->
+    <div class="main-grid">
+
+      <!-- Left Column: Input & User Persona Conditioning -->
+      <div class="left-column">
+
+        <!-- Sample Selector Card -->
+        <div class="glass-panel mb-4">
+          <div class="panel-title">
+            <span>⚡ Quick Sample Notices</span>
+            <small style="font-size:0.75rem; color:var(--text-muted);">Select pre-loaded notice</small>
+          </div>
+          <div class="samples-bar" id="samples-bar">
+            <!-- Dynamically populated sample chips -->
+          </div>
+        </div>
+
+        <!-- Input Notice Card -->
+        <div class="glass-panel">
+          <div class="panel-title">
+            <span>📄 Notice Document Input</span>
+            <span style="font-size:0.8rem; color:var(--accent-cyan);">Multi-Task NLP Parser</span>
+          </div>
+
+          <form id="analyze-form">
+            <div class="form-group mb-4">
+              <label for="notice-title">Notice Title / Label</label>
+              <input type="text" id="notice-title" placeholder="e.g. GST Audit Show Cause Notice 2026" value="GST Audit Show Cause Notice">
+            </div>
+
+            <div class="form-group mb-4">
+              <label for="notice-text">Raw Notice Document Text</label>
+              <textarea id="notice-text" class="input-area" placeholder="Paste full notice text here..."></textarea>
+            </div>
+
+            <!-- User Persona Conditioning Accordion -->
+            <div class="glass-panel" style="background: rgba(0,0,0,0.3); border-color: rgba(255,255,255,0.05); margin-bottom: 16px;">
+              <div style="font-size:0.85rem; font-weight:600; color:var(--accent-cyan); margin-bottom:10px;">
+                🎯 User Profile Conditioning (Applicability Filter)
+              </div>
+              <div class="form-grid">
+                <div class="form-group">
+                  <label for="entity-name">Entity Name</label>
+                  <input type="text" id="entity-name" value="Acme Technologies Pvt Ltd">
+                </div>
+                <div class="form-group">
+                  <label for="entity-type">Entity Type</label>
+                  <select id="entity-type">
+                    <option value="Pvt Ltd">Pvt Ltd</option>
+                    <option value="LLP">LLP</option>
+                    <option value="Proprietorship">Proprietorship</option>
+                    <option value="Individual">Individual</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="turnover-lakhs">Annual Turnover (₹ Lakhs)</label>
+                  <input type="number" id="turnover-lakhs" value="120.0" step="5">
+                </div>
+                <div class="form-group">
+                  <label for="industry-sector">Industry Sector</label>
+                  <select id="industry-sector">
+                    <option value="IT & Software">IT & Software</option>
+                    <option value="Manufacturing">Manufacturing</option>
+                    <option value="Retail & Trade">Retail & Trade</option>
+                    <option value="Healthcare">Healthcare</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="tax-registered">GST Registered Status</label>
+                  <select id="tax-registered">
+                    <option value="true">Registered (Active)</option>
+                    <option value="false">Non-Registered</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="employee-count">Employee Count</label>
+                  <input type="number" id="employee-count" value="25">
+                </div>
+              </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary" style="width:100%;">
+              <span>🔍 Run TrustExtract-N Engine</span>
+            </button>
+          </form>
+        </div>
+
+      </div>
+
+      <!-- Right Column: Results, Trust Score, Action Plan & Evidence -->
+      <div class="right-column">
+
+        <!-- Welcome Placeholder (shown before analysis) -->
+        <div id="results-placeholder" class="glass-panel" style="text-align:center; padding: 60px 20px;">
+          <div style="font-size:3rem; margin-bottom:12px;">🛡️</div>
+          <h3 style="margin-bottom:8px;">TrustExtract-N Analysis Ready</h3>
+          <p style="color:var(--text-muted); font-size:0.9rem; max-width:420px; margin: 0 auto 20px auto;">
+            Select a sample notice on the left or paste your own notice text to run multi-task entity extraction, evidence grounding, and trust verification.
+          </p>
+          <button class="btn btn-secondary" onclick="document.querySelector('.sample-chip').click()">
+            Try GST Audit Sample Notice
+          </button>
+        </div>
+
+        <!-- Analysis Results Container (Hidden initially) -->
+        <div id="results-container" class="hidden">
+
+          <!-- Trust Score Header Card -->
+          <div class="glass-panel" style="margin-bottom: 20px;">
+            <div class="panel-title">
+              <span>🛡️ TrustExtract-N Verification</span>
+              <span id="notice-id-badge" style="font-family:var(--font-code); font-size:0.8rem; color:var(--text-muted);">N2A-884920</span>
+            </div>
+
+            <!-- Trust Widget -->
+            <div class="trust-widget">
+              <div class="score-circle">
+                <div class="score-num" id="trust-score-val">92.5</div>
+                <div class="score-label">Trust Score</div>
+              </div>
+
+              <div class="trust-details">
+                <span class="trust-badge-label" id="trust-confidence-badge">HIGH (VERIFIED)</span>
+                <div style="font-size:0.82rem; color:var(--text-muted);" id="authority-text">
+                  CBIC Central Tax Commissionerate
+                </div>
+
+                <div class="trust-breakdown-bars">
+                  <div class="metric-bar-item">
+                    <label><span>Grounding</span><span id="score-grounding">90%</span></label>
+                    <div class="bar-track"><div class="bar-fill" id="bar-grounding" style="width: 90%;"></div></div>
+                  </div>
+                  <div class="metric-bar-item">
+                    <label><span>Format Check</span><span id="score-format">100%</span></label>
+                    <div class="bar-track"><div class="bar-fill" id="bar-format" style="width: 100%;"></div></div>
+                  </div>
+                  <div class="metric-bar-item">
+                    <label><span>Authority Match</span><span id="score-authority">95%</span></label>
+                    <div class="bar-track"><div class="bar-fill" id="bar-authority" style="width: 95%;"></div></div>
+                  </div>
+                  <div class="metric-bar-item">
+                    <label><span>Rule Logic</span><span id="score-rule">90%</span></label>
+                    <div class="bar-track"><div class="bar-fill" id="bar-rule" style="width: 90%;"></div></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Applicability Result Banner -->
+            <div id="applicability-banner" class="applicability-box applicable">
+              <div style="font-weight:600; margin-bottom:2px;" id="applicability-status">Applicable to Acme Technologies Pvt Ltd</div>
+              <div style="font-size:0.8rem;" id="applicability-reason">Satisfies statutory turnover and GST registration criteria.</div>
+            </div>
+          </div>
+
+          <!-- Main Analysis Tabs -->
+          <div class="glass-panel">
+            <div class="tab-nav">
+              <button class="tab-btn active" onclick="switchTab('tab-obligations')">📌 Obligations & Deadlines</button>
+              <button class="tab-btn" onclick="switchTab('tab-evidence')">🔍 Evidence Audit Trail</button>
+              <button class="tab-btn" onclick="switchTab('tab-actionplan')">🗺️ Action Roadmap</button>
+              <button class="tab-btn" onclick="switchTab('tab-response')">📝 Draft Reply</button>
+            </div>
+
+            <!-- Tab 1: Obligations -->
+            <div id="tab-obligations" class="tab-content active">
+              <div id="obligations-list">
+                <!-- Dynamically populated obligation cards -->
+              </div>
+            </div>
+
+            <!-- Tab 2: Evidence Audit Trail -->
+            <div id="tab-evidence" class="tab-content">
+              <div style="font-size:0.85rem; color:var(--text-muted); margin-bottom:12px;">
+                Verbatim character offset spans extracted directly from notice source text:
+              </div>
+              <div id="evidence-list">
+                <!-- Dynamically populated evidence groundings -->
+              </div>
+            </div>
+
+            <!-- Tab 3: Action Roadmap -->
+            <div id="tab-actionplan" class="tab-content">
+              <div id="action-steps-list">
+                <!-- Dynamically populated action steps -->
+              </div>
+            </div>
+
+            <!-- Tab 4: Draft Reply -->
+            <div id="tab-response" class="tab-content">
+              <div class="flex-between mb-4">
+                <span style="font-size:0.85rem; color:var(--text-muted);">Auto-generated Legal Response Affidavit:</span>
+                <button class="btn btn-secondary" onclick="copyResponseDraft()">📋 Copy Draft</button>
+              </div>
+              <pre class="code-block" id="response-draft-text"></pre>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+  <script src="/static/js/app.js"></script>
+</body>
+</html>

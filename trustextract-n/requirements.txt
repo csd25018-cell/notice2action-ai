@@ -1,0 +1,29 @@
+# Deep Learning & ML Core
+torch>=2.0.0
+transformers>=4.30.0
+datasets>=2.12.0
+accelerate>=0.20.0
+scikit-learn>=1.2.0
+pandas>=2.0.0
+numpy>=1.24.0
+sentencepiece>=0.1.99
+seqeval>=1.2.2
+
+# Document Processing & Computer Vision / OCR
+PyMuPDF>=1.22.0
+Pillow>=9.5.0
+pytesseract>=0.3.10
+opencv-python>=4.7.0
+paddleocr>=2.7.0
+paddlepaddle>=2.5.0
+
+# NLP & Language Detection
+python-dateutil>=2.8.0
+langdetect>=1.0.9
+
+# UI & Visualization
+streamlit>=1.22.0
+matplotlib>=3.7.0
+
+# Testing
+pytest>=7.3.0

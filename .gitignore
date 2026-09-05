@@ -1,0 +1,38 @@
+# Root .gitignore for notice2action-ai
+
+# Virtual Environments
+.venv/
+venv/
+env/
+ENV/
+
+# Python Caches & Bytecode
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache/
+.coverage
+.ipynb_checkpoints/
+.DS_Store
+
+# Agent / Tool Caches
+.agents/
+.claude/
+.gemini/
+
+# Model Checkpoints & Large Weights
+*.bin
+*.safetensors
+*.pt
+*.pth
+*.onnx
+output/
+trustextract-n/output/
+
+
+# Data Uploads & Logs
+data/uploads/*
+!data/uploads/.gitkeep
+*.log
+*.tmp

@@ -1,0 +1,37 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "trustextract-n"
+version = "1.0.0"
+description = "Confidence-Calibrated, Evidence-Grounded Government Notice Information Extraction & Summarization"
+readme = "README.md"
+authors = [
+    { name = "TrustExtract-N Team" }
+]
+license = { text = "MIT" }
+requires-python = ">=3.9"
+dependencies = [
+    "torch>=2.0.0",
+    "transformers>=4.30.0",
+    "datasets>=2.12.0",
+    "scikit-learn>=1.2.0",
+    "pandas>=2.0.0",
+    "numpy>=1.24.0",
+    "PyMuPDF>=1.22.0",
+    "Pillow>=9.5.0",
+    "pytesseract>=0.3.10",
+    "python-dateutil>=2.8.0",
+    "streamlit>=1.22.0",
+    "matplotlib>=3.7.0"
+]
+
+[tool.pytest.ini_options]
+minversion = "7.0"
+addopts = "-ra -q"
+testpaths = ["tests"]
+
+[tool.black]
+line-length = 120
+target-version = ['py39', 'py310', 'py311']

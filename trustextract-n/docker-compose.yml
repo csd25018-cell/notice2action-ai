@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  trustextract-n:
+    build: .
+    container_name: trustextract-n-app
+    ports:
+      - "8501:8501"
+    environment:
+      - APP_HOST=0.0.0.0
+      - APP_PORT=8501
+      - DEVICE=cpu
+      - LOG_LEVEL=INFO
+    volumes:
+      - ./data/uploads:/app/data/uploads
+    restart: unless-stopped

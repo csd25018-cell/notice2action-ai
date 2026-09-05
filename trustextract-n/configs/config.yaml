@@ -1,0 +1,31 @@
+# TrustExtract-N Configuration YAML
+system:
+  project_name: "TrustExtract-N"
+  version: "1.0.0"
+  log_level: "INFO"
+
+model:
+  pretrained_name: "google/muril-base-cased"
+  model_dir: "models/trustextract"
+  baseline_dir: "output/baseline_model"
+  calibration_path: "models/trustextract/calibration.json"
+
+runtime:
+  device: "auto"
+  ocr_lang: "en"
+  ocr_dpi: 250
+  default_threshold: 0.75
+
+thresholds:
+  last_date: 0.85
+  authority: 0.80
+  title: 0.75
+  eligibility: 0.75
+  required_documents: 0.75
+  notice_number: 0.75
+  contact: 0.70
+  audience: 0.70
+
+application:
+  host: "0.0.0.0"
+  port: 8501

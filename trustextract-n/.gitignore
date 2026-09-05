@@ -1,0 +1,42 @@
+# Environment & Virtualenvs
+.env
+.venv/
+venv/
+ENV/
+env/
+
+# Python Cache & Bytecode
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache/
+.coverage
+htmlcov/
+.ipynb_checkpoints/
+.DS_Store
+
+# Temporary Data & Uploads
+data/uploads/*
+!data/uploads/.gitkeep
+data/active_learning/inbox/*
+!data/active_learning/inbox/.gitkeep
+.cache/
+
+# User Documents & Output Logs
+*.log
+*.tmp
+temp_*
+output/test_results/
+
+# Heavy Model Weights & Checkpoints (Auto-downloaded via scripts/download_models.py)
+*.bin
+*.safetensors
+*.pt
+*.onnx
+output/baseline_model/checkpoint-*/
+
+# Distribution & Build
+dist/
+build/
+*.egg-info/

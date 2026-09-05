@@ -1,0 +1,68 @@
+{
+  "total_documents": 55,
+  "document_type_distribution": {
+    "Act": 50,
+    "Scheme Document": 5
+  },
+  "jurisdiction_distribution": {
+    "Central": 32,
+    "nan": 5,
+    "State (Tamil Nadu)": 3,
+    "State (Andhra Pradesh)": 3,
+    "Uttar Pradesh": 3,
+    "State (Punjab)": 2,
+    "Uttar Pradesh, India": 1,
+    "State (Odisha)": 1,
+    "State (Assam)": 1,
+    "State (Telangana)": 1,
+    "State (Rajasthan)": 1,
+    "Maharashtra": 1,
+    "State (Maharashtra)": 1
+  },
+  "missing_values": {
+    "doc_id": 5,
+    "document_title": 0,
+    "document_type": 0,
+    "document_jurisdiction": 5,
+    "issuing_authority": 5,
+    "issue_date": 5,
+    "text": 0,
+    "source_dataset": 0,
+    "filename": 50,
+    "repo_path": 50
+  },
+  "character_length_stats": {
+    "count": 55.0,
+    "mean": 18913.327272727274,
+    "std": 23340.89471535167,
+    "min": 2001.0,
+    "25%": 2776.5,
+    "50%": 11486.0,
+    "75%": 24204.5,
+    "max": 114664.0
+  },
+  "word_length_stats": {
+    "count": 55.0,
+    "mean": 3080.0363636363636,
+    "std": 3815.405953662833,
+    "min": 257.0,
+    "25%": 445.5,
+    "50%": 1751.0,
+    "75%": 4139.0,
+    "max": 20293.0
+  },
+  "top_issuing_authorities": {
+    "Parliament of India": 23,
+    "nan": 5,
+    "Legislature of the State of Punjab": 2,
+    "Legislative Assembly of the State of Andhra Pradesh": 2,
+    "Uttar Pradesh Legislature": 2,
+    "Legislature of the State of Tamil Nadu": 2,
+    "Parliament": 2,
+    "Parliament of India (Legislative Department)": 1,
+    "Parliament (Seventieth Year of the Republic of India)": 1,
+    "Ministry of Labour and Employment, Government of India": 1
+  },
+  "exact_text_duplicates": 3,
+  "title_duplicates": 8
+}

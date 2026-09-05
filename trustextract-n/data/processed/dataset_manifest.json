@@ -1,0 +1,33 @@
+{
+  "processing_timestamp": "2026-09-04T22:28:00.156688",
+  "datasets": [
+    {
+      "dataset_name": "KanoonGPT/indian-legal-documents",
+      "number_of_records_discovered": 35845,
+      "number_selected": 50,
+      "document_types": {
+        "Act": 50
+      },
+      "missing_fields": {
+        "doc_id": 0,
+        "document_title": 0,
+        "issuing_authority": 0,
+        "issue_date": 0
+      },
+      "output_file": "kanoongpt_selected.jsonl"
+    },
+    {
+      "dataset_name": "shrijayan/gov_myscheme",
+      "number_of_records_discovered": 2879,
+      "number_selected": 5,
+      "document_types": {
+        "Scheme Document": 5
+      },
+      "missing_fields": {
+        "filename": 0,
+        "text": 0
+      },
+      "output_file": "myscheme_selected.jsonl"
+    }
+  ]
+}

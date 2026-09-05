@@ -1,0 +1,31 @@
+{
+  "created_at": "2026-09-04T23:11:51.063855",
+  "total_documents": 31,
+  "quotas": {
+    "Notification": {
+      "target": 10,
+      "collected": 10
+    },
+    "Circular": {
+      "target": 10,
+      "collected": 10
+    },
+    "Order": {
+      "target": 5,
+      "collected": 5
+    },
+    "Guidelines": {
+      "target": 5,
+      "collected": 5
+    },
+    "Scheme": {
+      "target": 10,
+      "collected": 0
+    },
+    "Public Notice": {
+      "target": 10,
+      "collected": 1
+    }
+  },
+  "output_path": "/Users/ishananshitsilpy/Desktop/tezhack/notice2action-ai/trustextract-n/data/annotations/annotation_corpus.jsonl"
+}
